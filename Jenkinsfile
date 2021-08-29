@@ -33,17 +33,17 @@ pipeline{
         stage ('Publish to nexus') {
             steps {
                 nexusArtifactUploader artifacts: 
-                [[artifactId: 'TrevorDevOpsLab', 
+                [[artifactId: "${ArtifactId}", 
                 classifier: '', 
                 file: 'target/TrevorDevOpsLab-0.0.11-SNAPSHOT.war', 
                 type: 'war']], 
                 credentialsId: 'f4b71a2d-b33c-418e-82fd-cb0c8588a525', 
-                groupId: 'com.trevordevopslab', 
+                groupId: "${GroupId}", 
                 nexusUrl: '172.20.10.57:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'TrevorDevOpsSnapshot', 
-                version: '0.0.11-SNAPSHOT'
+                version: "${Version}"
             }
 
         }
