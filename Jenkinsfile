@@ -48,14 +48,6 @@ pipeline{
 
         }
 
-        stage ('Printing environment variables') {
-            steps {
-                echo "Artifact id : '${ArtifactId}'" 
-                echo "Version : '${Version}'" 
-                echo "Group id : '${GroupId}'" 
-                echo "Name is : '${Name}'" 
-            }
-        }
 
         // Stage3 : Publish the source code to Sonarqube
         stage ('Sonarqube Analysis'){
